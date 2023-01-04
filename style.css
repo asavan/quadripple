@@ -1,0 +1,67 @@
+.table {
+    color: #000000;
+    width: 40%;
+    aspect-ratio: 1 / 1;
+    border: 2px solid;
+    margin:auto;
+    cursor:pointer;
+    justify-content: center;
+}
+
+.counter {
+    color: black;
+    font-size: 4rem;
+}
+
+.circle {
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    position: relative;
+    transition: transform 500ms;
+}
+
+.circle1 {
+    bottom: -1%;
+    right: -1%;
+    background: #f39090;
+}
+
+.circle2 {
+    bottom: -59%;
+    right: -1%;
+    background: #f39090;
+}
+
+.circle3 {
+    bottom: 39%;
+    right: -79%;
+    background: #f39090;
+}
+
+.circle4 {
+    bottom: -19%;
+    right: -79%;
+    background: #f39090;
+}
+
+.button {
+    bottom: 40%;
+    margin: 0 auto;
+    background: #8a6f6f;
+}
+
+.spin {
+    animation:rotate 2s  infinite;
+    animation-timing-function: cubic-bezier(1,0,.5,1);
+}
+
+@-webkit-keyframes rotate {
+    from { -webkit-transform: rotate(0deg) }
+    to { -webkit-transform: rotate(3600deg) }
+}
+
+.flipped {
+    background: aqua;
+    transform: rotateY(180deg);
+}
