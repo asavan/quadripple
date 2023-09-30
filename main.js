@@ -1,3 +1,5 @@
+"use strict";
+
 // 0 - One
 // 1 - diagonal
 // 2 - side
@@ -28,7 +30,7 @@ function main(document) {
 
     const userMove = [true, true, true, true];
 
-    let baseConditions = [true, true, true]
+    let baseConditions = [true, true, true];
 
     const circle1 = document.querySelector(".circle1");
     circle1.addEventListener("click", (e) => {
@@ -74,7 +76,7 @@ function main(document) {
     });
 
     function onClick(index) {
-        userMove[index] = !userMove[index]
+        userMove[index] = !userMove[index];
     }
 
     function moveType() {
@@ -84,17 +86,17 @@ function main(document) {
         }
 
         if (counter === 0 || counter === 4) {
-            return 'None';
+            return "None";
         }
 
         if (counter === 1 || counter === 3) {
-            return 'One';
+            return "One";
         }
 
         if (counter === 2 && userMove[1] === userMove[3]) {
-            return 'Diagonal';
+            return "Diagonal";
         }
-        return 'Side';
+        return "Side";
     }
 
     function makeCounterText(counter) {
@@ -111,36 +113,36 @@ function main(document) {
     }
 
     function transition(move, conditionNumber) {
-        if (move === 'None') {
+        if (move === "None") {
             const result = [false, false, false];
             result[conditionNumber] = true;
             return result;
         }
 
-        if (move === 'One') {
+        if (move === "One") {
             if (conditionNumber === 0) {
                 return [false, true, true];
             }
             return [true, false, false];
         }
 
-        if (move === 'Diagonal' && conditionNumber === 0) {
+        if (move === "Diagonal" && conditionNumber === 0) {
             return [true, false, false];
         }
-        if (move === 'Diagonal' && conditionNumber === 1) {
+        if (move === "Diagonal" && conditionNumber === 1) {
             return [false, false, false];
         }
-        if (move === 'Diagonal' && conditionNumber === 2) {
+        if (move === "Diagonal" && conditionNumber === 2) {
             return [false, false, true];
         }
 
-        if (move === 'Side' && conditionNumber === 0) {
+        if (move === "Side" && conditionNumber === 0) {
             return [true, false, false];
         }
-        if (move === 'Side' && conditionNumber === 1) {
+        if (move === "Side" && conditionNumber === 1) {
             return [false, false, true];
         }
-        if (move === 'Side' && conditionNumber === 2) {
+        if (move === "Side" && conditionNumber === 2) {
             return [false, true, false];
         }
 
@@ -154,7 +156,7 @@ function main(document) {
     }
 
     const compareArrays = (a, b) =>
-      a.length === b.length &&
+        a.length === b.length &&
       a.every((element, index) => element === b[index]);
 
     function onWin() {
@@ -190,6 +192,6 @@ function main(document) {
 
 main(document);
 
-if (settings.useServiceWorker && 'serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js', {scope: './'});
+if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js", {scope: "./"});
 }

@@ -1,13 +1,13 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
-  --main-color: #F0F8FF;
-  --color-red: #F55;
-  --color-blue: #55F;
-  --current-color: aliceblue;
+    --main-color: #F0F8FF;
+    --color-red: #F55;
+    --color-blue: #55F;
+    --current-color: aliceblue;
 }
 
 .body {
@@ -22,13 +22,7 @@
     display: grid;
     place-items: center;
     background-color: var(--current-color);
-
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:
-    "A . C"
-    ". E ."
-    "B . D";
+    grid-template: "A . C" 1fr ". E ." 1fr "B . D" 1fr / 1fr 1fr 1fr;
     padding: 1em;
     user-select: none;
 }
@@ -76,14 +70,14 @@
     cursor:pointer;
 }
 
-.button_text {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 8rem;
-  color: white;
+.button-text {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    color: white;
 }
 
 .spin {
@@ -102,16 +96,16 @@
 }
 
 #my-popover {
-  background: #333;
-  color: white;
-  font-weight: 400;
-  font-size: 2rem;
-  padding: 1rem;
-  max-width: min(500px, 100%);
-  line-height: 1.4;
-  position: absolute;
-  top: 1rem;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
+    background: #333;
+    color: white;
+    font-weight: 400;
+    font-size: 2rem;
+    padding: 1rem;
+    max-width: min(500px, 100%);
+    line-height: 1.4;
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
