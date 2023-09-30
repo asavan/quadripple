@@ -189,3 +189,7 @@ function main(document) {
 }
 
 main(document);
+
+if (settings.useServiceWorker && 'serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js', {scope: './'});
+}
