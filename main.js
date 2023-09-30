@@ -6,7 +6,8 @@ function main() {
     let counter = 0;
 
     const button = document.querySelector(".button");
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
         rotateTable();
         next();
     });
@@ -25,7 +26,8 @@ function main() {
     let baseConditions = [true, true, true]
 
     const circle1 = document.querySelector(".circle1");
-    circle1.addEventListener("click", () => {
+    circle1.addEventListener("click", (e) => {
+        e.preventDefault();
         circle1.classList.toggle("flipped");
         onClick(0);
     });
