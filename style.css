@@ -20,6 +20,7 @@
     border: 2px solid var(--color-blue);
     box-sizing: border-box;
     display: grid;
+    place-items: center;
     background-color: var(--current-color);
 
     grid-template-columns: 1fr 1fr 1fr;
@@ -90,3 +91,19 @@
     background: var(--color-blue);
     transform: rotateY(180deg);
 }
+
+#my-popover {
+  background: #333;
+  color: white;
+  font-weight: 400;
+  font-size: 2rem;
+  padding: 1rem;
+  max-width: min(500px, 100%);
+  line-height: 1.4;
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+

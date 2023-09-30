@@ -2,12 +2,17 @@
 // 1 - diagonal
 // 2 - side
 
-function main() {
+function main(document) {
     let counter = 0;
+    let gameOver = false;
 
     const button = document.querySelector(".button");
     button.addEventListener("click", (e) => {
         e.preventDefault();
+        if (gameOver) {
+            onWin();
+            return;
+        }
         rotateTable();
         next();
     });
@@ -28,24 +33,42 @@ function main() {
     const circle1 = document.querySelector(".circle1");
     circle1.addEventListener("click", (e) => {
         e.preventDefault();
+        if (gameOver) {
+            return;
+        }
         circle1.classList.toggle("flipped");
         onClick(0);
     });
 
     const circle2 = document.querySelector(".circle3");
-    circle2.addEventListener("click", () => {
+    circle2.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (gameOver) {
+            return;
+        }
+
         circle2.classList.toggle("flipped");
         onClick(1);
     });
 
     const circle3 = document.querySelector(".circle4");
-    circle3.addEventListener("click", () => {
+    circle3.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (gameOver) {
+            return;
+        }
+
         circle3.classList.toggle("flipped");
         onClick(2);
     });
 
     const circle4 = document.querySelector(".circle2");
-    circle4.addEventListener("click", () => {
+    circle4.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (gameOver) {
+            return;
+        }
+
         circle4.classList.toggle("flipped");
         onClick(3);
     });
@@ -130,6 +153,19 @@ function main() {
         }
     }
 
+    const compareArrays = (a, b) =>
+      a.length === b.length &&
+      a.every((element, index) => element === b[index]);
+
+    function onWin() {
+        const text = "You win in " + counter + " moves!";
+        const pop = document.querySelector("#my-popover");
+        const textHtml = pop.querySelector("p");
+        textHtml.innerText = text;
+        pop.showPopover();
+        gameOver = true;
+    }
+
     function next() {
         const move = moveType();
 
@@ -144,12 +180,12 @@ function main() {
         baseConditions = result;
         ++counter;
 
-        if (baseConditions == [false, false, false].toString()) {
-            alert("You win in " + counter + " moves!");
+        if (compareArrays(baseConditions, [false, false, false])) {
+            onWin();
         }
         resetMove();
     }
 
 }
 
-main();
+main(document);
