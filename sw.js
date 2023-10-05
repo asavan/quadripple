@@ -1,4 +1,4 @@
-const version = "1.0.0";
+const version = "1.0.1";
 const CACHE = "cache-only" + version;
 
 function fromCache(request) {
@@ -23,34 +23,27 @@ function precacheOld() {
     });
 }
 
-// eslint-disable-next-line no-unused-vars
-function precache() {
-    const filesToCache = self.__WB_MANIFEST.map((e) => e.url);
-    return caches.open(CACHE).then(function (cache) {
-        return cache.addAll([
-            "./",
-            ...filesToCache
-        ]);
-    });
-}
-
 self.addEventListener("install", function (evt) {
-    evt.waitUntil(precacheOld());
-});
-
-self.addEventListener("install", function (evt) {
-    evt.waitUntil(precache().then(function () {
+    evt.waitUntil(precacheOld().then(function () {
         return self.skipWaiting();
     }));
 });
 
+function fromNetwork(request, timeout) {
+    return new Promise(function (resolve, reject) {
+        const timeoutId = setTimeout(reject, timeout);
+
+        fetch(request).then(function (response) {
+            clearTimeout(timeoutId);
+            resolve(response);
+        }, reject);
+    });
+}
+
 function networkOrCache(request) {
-    return fetch(request).then(function (response) {
-        return response.ok ? response : fromCache(request);
-    })
-        .catch(function () {
-            return fromCache(request);
-        });
+    return fromNetwork(request, 400).catch(function () {
+        return fromCache(request);
+    });
 }
 
 self.addEventListener("fetch", function (evt) {
