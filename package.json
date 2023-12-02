@@ -1,0 +1,23 @@
+{
+  "name": "quadripple",
+  "version": "1.0.0",
+  "description": "Quadripple game",
+  "private": true,
+  "main": "main.js",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "style": "npx eslint . && npx stylelint \"**/*.css\"",
+    "style:fix": "npx eslint . --fix && npx stylelint \"**/*.css\" --fix",
+    "updates": "npx ncu"
+  },
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "npm-check-updates": "^16.14.4",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0"
+  }
+}
