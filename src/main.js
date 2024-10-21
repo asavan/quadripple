@@ -82,7 +82,9 @@ export default function main(document) {
     function moveType() {
         let counter = 0;
         for (const el of userMove) {
-            if (el) ++counter;
+            if (el) {
+                ++counter;
+            }
         }
 
         if (counter === 0 || counter === 4) {
@@ -171,7 +173,7 @@ export default function main(document) {
     function next() {
         const move = moveType();
 
-        let result = [false, false, false];
+        const result = [false, false, false];
 
         for (let i = 0; i < 3; ++i) {
             if (baseConditions[i]) {
@@ -189,4 +191,3 @@ export default function main(document) {
     }
 
 }
-
