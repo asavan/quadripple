@@ -4,7 +4,7 @@
 // 1 - diagonal
 // 2 - side
 
-function main(document) {
+export default function main(document) {
     let counter = 0;
     let gameOver = false;
 
@@ -190,8 +190,3 @@ function main(document) {
 
 }
 
-main(document);
-
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./sw.js", {scope: "./"});
-}
