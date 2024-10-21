@@ -1,0 +1,21 @@
+{
+    "name": "quadripple game",
+	"short_name": "quadripple",
+    "icons": [
+        {
+            "src": "./images/quad.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "./images/icon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "start_url": "./",
+    "display": "standalone"
+}

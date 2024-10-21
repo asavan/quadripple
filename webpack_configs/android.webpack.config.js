@@ -7,16 +7,14 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import TerserJSPlugin from "terser-webpack-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
-
 import webpack from "webpack";
 
-const aConfig = () => {
+export default function config() {
     const dirname = path.dirname(fileURLToPath(import.meta.url));
     return {
-
         entry: {main: ["./src/index.js", "./src/css/style.css"]},
         output: {
-            path: path.resolve(dirname, "../android_dist"),
+            path: path.resolve(dirname, "../android/app/src/main/assets/www"),
             filename: "[name].[contenthash].js",
             clean: true
         },
@@ -61,6 +59,4 @@ const aConfig = () => {
             })
         ]
     };
-};
-
-export default aConfig;
+}
