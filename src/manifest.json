@@ -1,6 +1,21 @@
 {
     "name": "quadripple game",
 	"short_name": "quadripple",
+    "screenshots": [
+        {
+            "src": "./images/screen1.png",
+            "sizes": "1080x2340",
+            "type": "image/png",
+            "label": "Homescreen of Moonstone App"
+        },
+        {
+            "src": "./images/screen2.png",
+            "sizes": "2340x1080",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Homescreen of Moonstone App"
+        }
+    ],
     "icons": [
         {
             "src": "./images/quad.png",
