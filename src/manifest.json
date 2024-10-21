@@ -6,14 +6,14 @@
             "src": "./images/screen1.png",
             "sizes": "1080x2340",
             "type": "image/png",
-            "label": "Homescreen of Moonstone App"
+            "label": "Homescreen of quadripple App"
         },
         {
             "src": "./images/screen2.png",
             "sizes": "2340x1080",
             "type": "image/png",
             "form_factor": "wide",
-            "label": "Homescreen of Moonstone App"
+            "label": "Homescreen of quadripple App"
         }
     ],
     "icons": [
