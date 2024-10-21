@@ -21,11 +21,12 @@
             "src": "./images/quad.png",
             "sizes": "512x512",
             "type": "image/png",
-            "purpose": "any maskable"
+            "purpose": "maskable"
         },
         {
             "src": "./images/icon.svg",
             "sizes": "any",
+            "purpose": "any",
             "type": "image/svg+xml"
         }
     ],
