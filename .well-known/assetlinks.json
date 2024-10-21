@@ -3,7 +3,7 @@
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target" : { "namespace": "android_app", "package_name": "ru.asavan.quadripple",
     "sha256_cert_fingerprints": [
-      "FA:1E:23:5C:08:78:C3:01:20:97:0B:7A:FC:0A:08:1F:EE:B6:54:28:11:49:FB:46:52:CC:CC:E5:00:6F:0B:F4",
+      "E9:E5:C8:B0:1F:E8:B0:22:A7:72:99:0E:C2:C7:CC:B4:1F:4E:72:8D:9C:3E:08:A5:AD:A0:A0:D2:A1:86:B7:E2",
       "42:58:AF:E3:C6:F8:F3:01:E7:33:84:A5:F7:4A:35:C9:34:14:3C:2B:67:B6:5A:5C:6E:A4:4E:BC:5C:73:B4:4D"
     ]
   }

@@ -13,18 +13,15 @@ public class AndroidStaticAssetsServer extends NanoHTTPD {
     private final String folderToServe;
     private static final String DEFAULT_STATIC_FOLDER = "www";
 
-    public AndroidStaticAssetsServer(Context context, int port, boolean secure, String folderToServe) throws IOException {
+    public AndroidStaticAssetsServer(Context context, int port, String folderToServe) throws IOException {
         super(port);
         this.context = context;
         this.folderToServe = folderToServe;
-        if (secure) {
-            SslHelper.addSslSupport(context, this);
-        }
         start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
     }
 
-    public AndroidStaticAssetsServer(Context context, int port, boolean secure) throws IOException {
-        this(context, port, secure, DEFAULT_STATIC_FOLDER);
+    public AndroidStaticAssetsServer(Context context, int port) throws IOException {
+        this(context, port, DEFAULT_STATIC_FOLDER);
     }
 
     // override here

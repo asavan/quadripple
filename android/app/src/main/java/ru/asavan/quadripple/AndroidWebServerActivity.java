@@ -22,7 +22,7 @@ public class AndroidWebServerActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        btnUtils = new BtnUtils(this, STATIC_CONTENT_PORT, WEB_SOCKET_PORT, secure);
+        btnUtils = new BtnUtils(this, STATIC_CONTENT_PORT);
         try {
             addButtons(IpUtils.getIPAddressSafe());
             Map<String, String> mainParams = new LinkedHashMap<>();
