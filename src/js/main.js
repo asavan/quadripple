@@ -3,6 +3,16 @@ import {presenter} from "./presenter.js";
 export default function main(document, trans) {
     const eng = presenter(onWin);
 
+    const helpBtn = document.querySelector(".help-btn");
+    helpBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const text = await trans.t("rules");
+        const pop = document.querySelector("#my-popover");
+        const textHtml = pop.querySelector("p");
+        textHtml.textContent = text;
+        pop.showPopover();
+    });
+
     const button = document.querySelector(".button");
     button.addEventListener("click", (e) => {
         e.preventDefault();
