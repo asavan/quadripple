@@ -1,41 +1,49 @@
 import {presenter} from "./presenter.js";
+import {delay} from "./helper.js";
+import {optimalCounter} from "./optimal-counter.js";
 
-export default function main(document, trans) {
+export default function main(document, settings, trans) {
     const eng = presenter(onWin);
+    const op = optimalCounter(eng, settings.gap);
+    let inMove = false;
 
     const helpBtn = document.querySelector(".help-btn");
     helpBtn.addEventListener("click", async (e) => {
         e.preventDefault();
-        const text = await trans.t("rules");
+        const rulesEl = document.querySelector(".rules");
+        rulesEl.innerHTML = (await trans.t("rules")).replaceAll("\n", "<br>");
         const pop = document.querySelector("#my-popover");
-        const textHtml = pop.querySelector("p");
-        textHtml.textContent = text;
         pop.showPopover();
     });
 
     const button = document.querySelector(".button");
-    button.addEventListener("click", (e) => {
+    button.addEventListener("click", async (e) => {
         e.preventDefault();
         if (eng.isGameOver()) {
-            onWin();
+            return onWin();
+        }
+        if (inMove) {
             return;
         }
-        rotateTable();
+        inMove = true;
+        const rtPromise = rotateTable();
+        await delay(500);
         eng.next();
-        resetMove();
+        await resetMove();
+        await rtPromise;
+        inMove = false;
     });
 
     const table = document.querySelector(".table");
 
-    function rotateTable() {
+    async function rotateTable() {
         table.classList.add("spin");
-        setTimeout(()=>{
-            table.classList.remove("spin");
-        }, 2000);
+        await delay(2000);
+        table.classList.remove("spin");
     }
 
     const handleClick = (item, index) => {
-        if (eng.isGameOver()) {
+        if (eng.isGameOver() || inMove) {
             return;
         }
         item.classList.toggle("flipped");
@@ -70,7 +78,19 @@ export default function main(document, trans) {
     async function resetMove() {
         document.querySelectorAll(".circle").forEach(el => el.classList.remove("flipped"));
         const text = await makeCounterText(eng.getCounter());
-        document.querySelector(".counter").textContent = text;
+        const counterEl = document.querySelector(".counter");
+        counterEl.textContent = text;
+        if (op.isOptimal()) {
+            counterEl.classList.add("optimal");
+        } else {
+            counterEl.classList.remove("optimal");
+        }
+
+        if (op.tooManyMoves()) {
+            counterEl.classList.add("too-many");
+        } else {
+            counterEl.classList.remove("too-many");
+        }
     }
 
     async function onWin() {

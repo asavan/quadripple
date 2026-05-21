@@ -18,6 +18,6 @@ export function starter(window, document) {
     document.documentElement.lang = trans.getLang();
 
 
-    const g = main(document, trans);
+    const g = main(document, settings, trans);
     return g;
 }

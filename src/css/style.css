@@ -9,6 +9,8 @@
     --color-red: #F55;
     --color-blue: #55F;
     --current-color: aliceblue;
+    --main-inc-color: green;
+    --too-many-inc-color: red;
 }
 
 html {
@@ -200,6 +202,14 @@ dialog::backdrop {
 .circled::after {
     content: "?";
     grid-area: 1 / 1;
+}
+
+.optimal {
+    color: var(--main-inc-color);
+}
+
+.too-many {
+    color: var(--too-many-inc-color);
 }
 
 @media (max-width: 600px) {
