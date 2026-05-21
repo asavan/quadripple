@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -95,17 +96,130 @@
     transform: rotateY(180deg);
 }
 
-#my-popover {
-    background: #333;
-    color: white;
-    font-weight: 400;
-    font-size: 2rem;
-    padding: 1rem;
-    max-width: min(500px, 100%);
-    line-height: 1.4;
-    position: absolute;
-    top: 1rem;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+/*#my-popover {*/
+/*    background: #333;*/
+/*    color: white;*/
+/*    font-weight: 400;*/
+/*    font-size: 2rem;*/
+/*    padding: 1rem;*/
+/*    max-width: min(500px, 100%);*/
+/*    line-height: 1.4;*/
+/*    position: absolute;*/
+/*    top: 1rem;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+.panel-header {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    gap: 3px;
 }
+
+.relative {
+    position: relative;
+}
+
+.control-panel {
+    top: 10px;
+    right: 10px;
+    background-color: #323232;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-family: sans-serif;
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    min-width: 320px;
+    transition: min-height 0.3s ease, padding 0.3s ease, min-width 0.3s ease;
+    gap: 5px;
+}
+
+.control-panel.minimized {
+    min-width: auto;
+    min-height: auto;
+    gap: 0;
+    display: block !important;
+    margin-left: 0;
+    padding: 5px;
+    outline: none;
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+.contrl-btn {
+    font-family: Cambria, Georgia, serif;
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+    font-size: 2rem;
+    padding: 0 3px;
+}
+
+.control-panel button:not(:disabled):active {
+    background-color: #7a7a7a;
+    transform: translateY(1px);
+}
+
+.control-panel button:not(:disabled):hover { background-color: #686868; }
+
+
+dialog {
+    border: none;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 20%);
+}
+
+dialog::backdrop {
+    background-color: rgb(0 0 0 / 50%);
+}
+
+.circled {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.circled::before {
+    content: "";
+    grid-area: 1 / 1;
+    width: 35px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.circled::after {
+    content: "?";
+    grid-area: 1 / 1;
+}
+
+@media (max-width: 600px) {
+    .hidden2 {
+        display: none;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .message {
+        font-size: 50px;
+    }
+}
+
+.hidden {
+    display: none;
+}
+

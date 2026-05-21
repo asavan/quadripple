@@ -1,0 +1,8 @@
+{
+  "game": "Quadripple",
+  "description": "Quadripple game",
+  "catch": "Gotcha!",
+  "in": "In",
+  "move": "move",
+  "rules": "A coin lies in each corner of a square table. \nSome are heads up, some tails up, but we can't see which is which. \nIn one move, any number of coins, from 0 to 4, can be flipped. \nIf all the coins land on the same side, the player wins. Otherwise, the table rotates by any angle, a multiple of 90 degrees. \nSolve the problem in the minimum number of moves."
+}

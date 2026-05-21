@@ -6,10 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="theme-color" content="#ffffff">
     <link id="favicon" rel="icon" href="./images/icon.svg" sizes="any" type="image/svg+xml">
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="./app.webmanifest">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="./images/icon.svg">
     <title>Dark room</title>
 </head>
 <body>
+    <section class="menu">
+        <div id="control-panel" class="control-panel minimized">
+            <div class="panel-header">
+                <!--⛶ ⤭ ◱ 🗖 🗖 -->
+                <button id="butInstall" title="install" class="hidden contrl-btn butInstall">↓</button>
+                <button title="Rules" class="help-btn contrl-btn circled" popovertarget="my-popover"></button>
+            </div>
+            <div class="panel-content"></div>
+        </div>
+    </section>
+
     <div class="table">
         <div class="circle circle1">
         </div>
@@ -26,7 +39,7 @@
     </div>
     <div class="counter"> </div>
     <div id="my-popover" popover>
-        <p>I am a popover with more information.<p>
+        <p class="rules">I am a popover with more information.<p>
     </div>
 </body>
 </html>

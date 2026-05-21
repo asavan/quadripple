@@ -4,7 +4,7 @@
 // 1 - diagonal
 // 2 - side
 
-export default function main(document) {
+export default function main(document, trans) {
     let counter = 0;
     let gameOver = false;
 
@@ -32,48 +32,30 @@ export default function main(document) {
 
     let baseConditions = [true, true, true];
 
-    const circle1 = document.querySelector(".circle1");
-    circle1.addEventListener("click", (e) => {
-        e.preventDefault();
+    const handleClick = (item, index) => {
         if (gameOver) {
             return;
         }
-        circle1.classList.toggle("flipped");
-        onClick(0);
-    });
+        item.classList.toggle("flipped");
+        onClick(index);
+    };
 
-    const circle2 = document.querySelector(".circle3");
-    circle2.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (gameOver) {
-            return;
-        }
+    const addClickHandler = (item, index) => {
+        item.addEventListener("click", (e) => {
+            e.preventDefault();
+            handleClick(item, index);
+        });
+    };
 
-        circle2.classList.toggle("flipped");
-        onClick(1);
-    });
+    const addClickHandlerByClass = (selector, index) => {
+        const item = document.querySelector(selector);
+        addClickHandler(item, index);
+    };
 
-    const circle3 = document.querySelector(".circle4");
-    circle3.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (gameOver) {
-            return;
-        }
-
-        circle3.classList.toggle("flipped");
-        onClick(2);
-    });
-
-    const circle4 = document.querySelector(".circle2");
-    circle4.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (gameOver) {
-            return;
-        }
-
-        circle4.classList.toggle("flipped");
-        onClick(3);
-    });
+    addClickHandlerByClass(".circle1", 0);
+    addClickHandlerByClass(".circle3", 1);
+    addClickHandlerByClass(".circle4", 2);
+    addClickHandlerByClass(".circle2", 3);
 
     function onClick(index) {
         userMove[index] = !userMove[index];
@@ -102,16 +84,18 @@ export default function main(document) {
     }
 
     function makeCounterText(counter) {
-        return "Move " + counter;
+        return trans.pluralise("move", counter);
     }
 
-    function resetMove() {
+    async function resetMove() {
         for (let i = 0; i < 4; ++i) {
             userMove[i] = true;
         }
         document.querySelectorAll(".circle").forEach(el => el.classList.remove("flipped"));
 
-        document.querySelector(".counter").innerHTML=makeCounterText(counter);
+        const text = await makeCounterText(counter);
+
+        document.querySelector(".counter").textContent = text;
     }
 
     function transition(move, conditionNumber) {
@@ -189,5 +173,4 @@ export default function main(document) {
         }
         resetMove();
     }
-
 }
