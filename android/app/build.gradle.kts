@@ -5,20 +5,20 @@ plugins {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
 
 android {
     namespace = "ru.asavan.quadripple"
-    compileSdk = 35
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "ru.asavan.quadripple"
         minSdk = 23
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.1.0"
+        targetSdk = 37
+        versionCode = 2
+        versionName = "1.1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

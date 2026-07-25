@@ -6,27 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="theme-color" content="#ffffff">
     <link id="favicon" rel="icon" href="./images/icon.svg" sizes="any" type="image/svg+xml">
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="./app.webmanifest">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="./images/icon.svg">
     <title>Dark room</title>
-<script defer src="main.a2aba1be77ae3b52af8a.js"></script><style type="text/css">*{margin:0;padding:0}:root{--main-color:#f0f8ff;--color-red:#f55;--color-blue:#55f;--current-color:#f0f8ff}.body{overflow:hidden}.table{aspect-ratio:1/1;background-color:var(--current-color);border:2px solid var(--color-blue);box-sizing:border-box;display:grid;grid-template:"A . C" 1fr ". E ." 1fr "B . D" 1fr/1fr 1fr 1fr;max-width:500px;padding:1em;place-items:center;user-select:none}.counter{color:#000;font-size:4rem}.circle{aspect-ratio:1/1;background:var(--color-red);border-radius:50%;cursor:pointer;height:100%;transition:transform .5s;width:100%;-webkit-tap-highlight-color:transparent}.circle1{grid-area:A}.circle2{grid-area:B}.circle3{grid-area:C}.circle4{grid-area:D}.button{aspect-ratio:1/1;background:var(--color-blue);border-radius:30px;cursor:pointer;grid-area:E;height:100%;position:relative;width:100%}.button-text{color:#fff;font-size:8rem;left:50%;margin:0;position:absolute;top:50%;transform:translate(-50%,-50%)}.spin{animation:rotate 2s infinite;animation-timing-function:cubic-bezier(1,0,.5,1)}@keyframes rotate{0%{transform:rotate(0deg)}to{transform:rotate(10turn)}}.flipped{background:var(--color-blue);transform:rotateY(180deg)}#my-popover{background:#333;color:#fff;font-size:2rem;font-weight:400;left:0;line-height:1.4;margin:0 auto;max-width:min(500px,100%);padding:1rem;position:absolute;right:0;top:1rem}</style></head>
+<script type="module" src="main.7726285952e8fbe756d6.js"></script><style type="text/css">*{box-sizing:border-box;margin:0;padding:0}:root{--main-color:#f0f8ff;--color-red:#f55;--color-blue:#55f;--current-color:#f0f8ff;--main-inc-color:green;--too-many-inc-color:red}html{height:100%}body{height:100vh}.content,body{display:flex;flex-direction:column}.content{align-items:center;flex:1 0 auto;justify-content:center}.table{aspect-ratio:1/1;background-color:var(--current-color);border:2px solid var(--color-blue);box-sizing:border-box;display:grid;grid-template:"A . C" 1fr ". E ." 1fr "B . D" 1fr/1fr 1fr 1fr;max-width:500px;padding:1em;place-items:center;user-select:none;width:min(100cqw,75cqh)}.counter{color:#000;flex:0 0 auto;font-size:4rem;height:75px;min-width:50px}.circle{aspect-ratio:1/1;background:var(--color-red);border-radius:50%;cursor:pointer;height:100%;transition:transform .5s;width:100%;-webkit-tap-highlight-color:transparent}.circle1{grid-area:A}.circle2{grid-area:B}.circle3{grid-area:C}.circle4{grid-area:D}.button{aspect-ratio:1/1;background:var(--color-blue);border-radius:30px;cursor:pointer;grid-area:E;height:100%;position:relative;width:100%}.button-text{color:#fff;font-size:8rem;left:50%;margin:0;position:absolute;top:50%;transform:translate(-50%,-50%)}.spin{animation:rotate 2s infinite;animation-timing-function:cubic-bezier(1,0,.5,1)}@keyframes rotate{0%{transform:rotate(0deg)}to{transform:rotate(10turn)}}.flipped{background:var(--color-blue);transform:rotateY(180deg)}.panel-header{align-items:center;display:flex;flex-direction:row;gap:3px;justify-content:flex-end}.relative{position:relative}.control-panel{background-color:#323232;border-radius:5px;color:#fff;display:flex;flex-direction:column;font-family:sans-serif;gap:5px;min-width:320px;padding:10px;right:10px;top:10px;transition:min-height .3s ease,padding .3s ease,min-width .3s ease;z-index:2}.control-panel.minimized{border-radius:3px;display:block!important;gap:0;margin-left:0;min-height:auto;min-width:auto;outline:none;outline-offset:2px;padding:5px}.contrl-btn{background:none;border:none;color:#fff;cursor:pointer;display:grid;font-family:Cambria,Georgia,serif;font-size:2rem;height:50px;overflow:hidden;padding:0 3px;place-items:center;width:50px}.control-panel button:not(:disabled):active{background-color:#7a7a7a;transform:translateY(1px)}.control-panel button:not(:disabled):hover{background-color:#686868}dialog{border:none;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,.2);padding:20px}dialog::backdrop{background-color:rgba(0,0,0,.5)}.circled{align-items:center;display:grid;justify-content:center}.circled:before{aspect-ratio:1/1;border:2px solid #fff;border-radius:50%;content:"";grid-area:1/1;width:35px}.circled:after{content:"?";grid-area:1/1}.optimal{color:var(--main-inc-color)}.too-many{color:var(--too-many-inc-color)}@media (max-width:600px){.hidden2{display:none}.content{flex-direction:column}.message{font-size:50px}}.hidden{display:none}</style></head>
 <body>
+<section class="menu">
+    <div id="control-panel" class="control-panel minimized">
+        <div class="panel-header">
+            <!--⛶ ⤭ ◱ 🗖 🗖 -->
+            <button id="butInstall" title="install" class="hidden contrl-btn butInstall">↓</button>
+            <button title="Rules" class="help-btn contrl-btn circled" popovertarget="my-popover"></button>
+        </div>
+        <div class="panel-content"></div>
+    </div>
+</section>
+<section class="content">
     <div class="table">
-        <div class="circle circle1">
-        </div>
-        <div class="circle circle2">
-        </div>
-        <div class="circle circle3">
-        </div>
-        <div class="circle circle4">
-        </div>
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+        <div class="circle circle4"></div>
         <div class="button">
             <!--&#8635 &#10227;-->
             <span class="button-text"> &#8635; </span>
         </div>
     </div>
-    <div class="counter"> </div>
-    <div id="my-popover" popover>
-        <p>I am a popover with more information.<p>
-    </div>
+    <div class="counter"></div>
+</section>
+<div id="my-popover" popover>
+    <p class="rules">I am a popover with more information.</p>
+</div>
 </body>
 </html>
