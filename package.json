@@ -1,6 +1,6 @@
 {
   "name": "quadripple",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Quadripple game",
   "private": true,
   "main": "index.js",
@@ -33,6 +33,6 @@
   },
   "homepage": "https://asavan.github.io/quadripple/",
   "devDependencies": {
-    "devdeps": "github:asavan/dev-deps#v0.0.17"
+    "devdeps": "github:asavan/dev-deps#v0.3.1"
   }
 }
